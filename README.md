@@ -2,6 +2,15 @@
 
 - create react app using create-react-app
 - set up tailwindcss
+- Header
+- Routing of App
+- Login Form
+- Sign Up Form
+- Form Validation
+- useRef hook
+- Firebase setup
+- Deploying our app to production
+- Create SignUp user account
 
 # Features
 
