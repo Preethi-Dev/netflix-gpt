@@ -1,15 +1,15 @@
 import { signOut } from "firebase/auth";
 import React from "react";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 
 const Signout = () => {
-  const navigate = useNavigate();
   //hnadle sign out
   const handleSignOut = () => {
-    signOut(auth).then(() => {
-      navigate("/");
-    });
+    signOut(auth)
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="mr-12 flex gap-3 items-center cursor-pointer">

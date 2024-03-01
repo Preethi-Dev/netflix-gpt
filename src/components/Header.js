@@ -1,12 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import Signout from "./Signout";
+import { useDispatch, useSelector } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { addUser, removeUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
+import { LOGO } from "../utils/constants";
 
 const Header = () => {
+  //subscribe to the store
+  const user = useSelector((state) => state.user);
+
+  //dispatch
+  const dispatch = useDispatch();
+
+  //navigate
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    //check for auth state
+    const unSubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid, email, displayName }));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+
+    return () => unSubscribe();
+  }, []);
+
   return (
-    <div className="w-56 p-6">
-      <img
-        src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png"
-        alt="logo"
-      />
+    <div className="flex justify-between items-center">
+      <div className="w-56 p-6">
+        <img src={LOGO} alt="logo" />
+      </div>
+      {user && <Signout />}
     </div>
   );
 };
