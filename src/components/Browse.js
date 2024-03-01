@@ -1,12 +1,17 @@
-import React from "react";
 import Header from "./Header";
-import Signout from "./Signout";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import MainComponent from "./MainComponent";
+import SecondaryComponent from "./SecondaryComponent";
 
 const Browse = () => {
+  //side effects
+  useNowPlayingMovies();
+
   return (
-    <div className="flex justify-between items-center">
+    <div>
       <Header />
-      <Signout />
+      <MainComponent />
+      <SecondaryComponent />
     </div>
   );
 };
