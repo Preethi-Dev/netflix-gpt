@@ -9,3 +9,5 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NjZlNzY0NDNmOGYxMDI2YTM1MTFkY2Q3MWY4ZTBlNCIsInN1YiI6IjY1ZTE3YTI4MmQ1MzFhMDE4NWMxYzViOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ru28PLk_Am2CZsLAiszHh1udxFu2Qu9JeatthuhCP5c",
   },
 };
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w154/";
