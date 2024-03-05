@@ -34,8 +34,8 @@ const Header = () => {
   }, []);
 
   return (
-    <div className="flex justify-between items-center text-white z-30 relative">
-      <div className="w-56 p-6">
+    <div className="md:flex justify-between items-center text-white z-30 relative">
+      <div className="w-56 p-6 mx-auto md:mx-0">
         <img src={LOGO} alt="logo" />
       </div>
       {user && <Signout />}
